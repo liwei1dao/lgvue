@@ -1,5 +1,8 @@
 {
   "lgvue": "LGVUE",
   "swicthlang": "swicthlang",
-  "holle": "holle LGVUE"
+  "holle": "holle LGVUE",
+  "login": "Login",
+  "register": "Register",
+  "Captcha":"Captcha"
 }

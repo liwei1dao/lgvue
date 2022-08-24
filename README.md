@@ -43,3 +43,6 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
     }
   ```
   5. 安装cookie插件 yarn add js-cookie
+  6. 安装axios插件 yarn add axios
+  7. 安装js-md5插件 yarn add js-md5
+  8. 安装表单校验插件 yarn add vuelidate

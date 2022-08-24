@@ -1,5 +1,8 @@
 {
   "lgvue": "LGVUE",
   "swicthlang": "选择语言",
-  "holle": "holle LGVUE"
+  "holle": "holle LGVUE",
+  "login": "登录",
+  "register": "注册",
+  "Captcha": "验证码"
 }

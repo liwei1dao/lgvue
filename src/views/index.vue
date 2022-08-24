@@ -1,7 +1,9 @@
 <template>
-  <v-container>
-    <v-row>
-      <v-col>
+  <v-container class="d-flex justify-center fill-height"
+               fluid>
+    <v-row justify="center">
+      <v-col cols="auto"
+             align-self="center">
         {{$t('holle')}}
       </v-col>
     </v-row>

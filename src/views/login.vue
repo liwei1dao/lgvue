@@ -1,7 +1,7 @@
 <template>
   <v-container class="d-flex justify-center fill-height"
                fluid>
-    <v-row class="h-100">
+    <v-row>
       <v-col cols="6">
       </v-col>
       <v-col cols="6"

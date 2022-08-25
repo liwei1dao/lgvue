@@ -71,6 +71,9 @@ router.beforeEach(async (to, from, next) => {
   const userinfo = store.getters.user
   // if (to.name == LOGIN_PAGE_NAME) {
   if (BasePages.includes(to.name)) {
+    if (token && !userinfo) {//token 存在但是用户信息不存在 异步读取用户信息
+      store.dispatch('user/getuserinfo')
+    }
     next()
   } else {
     if (token && userinfo) {

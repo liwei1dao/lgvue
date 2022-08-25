@@ -83,9 +83,12 @@ router.beforeEach(async (to, from, next) => {
         try {
           await store.dispatch('user/getuserinfo')
           await store.dispatch('app/setrouters', store.getters.user.UserRole | 0)
-          router.addRoutes(store.getters.routers)
+          for (const route of store.getters.routers) {
+            router.addRoute(route)
+          }
           next({ ...to, replace: true });
         } catch (error) {
+          console.log('router beforeEach:%o', error)
           message.error(error.message)
           await store.dispatch('user/resetToken')
           // 如果没有登录而且前往的页面不是登录页面，跳转到登录页

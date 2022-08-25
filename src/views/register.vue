@@ -13,12 +13,12 @@
           </v-toolbar>
           <v-card-text>
             <v-form>
-              <v-text-field v-model="phonoremail"
-                            :error-messages="phonOrEmailErrors"
-                            label="PhonOrEmail"
+              <v-text-field v-model="email"
+                            :error-messages="emailErrors"
+                            label="email"
                             required
-                            @input="$v.phonoremail.$touch()"
-                            @blur="$v.phonoremail.$touch()"></v-text-field>
+                            @input="$v.email.$touch()"
+                            @blur="$v.email.$touch()"></v-text-field>
               <v-text-field v-model="password"
                             :error-messages="passwordErrors"
                             :counter="10"
@@ -42,19 +42,19 @@
               <v-text-field v-model="captcha"
                             :error-messages="captchaErrors"
                             :counter="4"
-                            label="Captcha"
+                            :label="$t('captcha')"
                             required
                             @input="$v.captcha.$touch()"
                             @blur="$v.captcha.$touch()">
                 <template v-slot:append>
                   <v-btn color="primary"
                          @click="getcaptcha"
-                         dark>{{$t('Captcha')}}</v-btn>
+                         dark>{{$t('captcha')}}</v-btn>
                 </template>
               </v-text-field>
               <v-btn class="mr-4"
                      color="warning"
-                     @click="registerbycaptcha"
+                     @click="register"
                      block>
                 {{$t('register')}}
               </v-btn>
@@ -80,7 +80,6 @@ import {
   minLength,
   email,
   numeric,
-  or,
 } from 'vuelidate/lib/validators'
 import { sendemailcaptcha, emailregister } from '@/api/user'
 export default {

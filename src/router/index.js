@@ -19,16 +19,19 @@ const staticRoutes = [
       {
         path: 'index',
         name: 'index',
+        meta: { title: '首页', icon: 'mdi-home' },
         component: () => import('@/views/index.vue'),
       },
       {
         path: 'login',
         name: 'login',
+        meta: { title: '登录', icon: 'mdi-home' },
         component: () => import('@/views/login.vue'),
       },
       {
         path: 'register',
         name: 'register',
+        meta: { title: '注册', icon: 'mdi-home' },
         component: () => import('@/views/register.vue'),
       }
     ]
@@ -67,6 +70,9 @@ const BasePages = ['login', 'register', 'index']
 const router = createRouter()
 // /*定义全局前置守卫（里面有两个坑要注意）*/
 router.beforeEach(async (to, from, next) => {
+  if (to.meta.title) {//判断是否有标题
+    document.title = to.meta.title
+  }
   const token = store.getters.token
   const userinfo = store.getters.user
   // if (to.name == LOGIN_PAGE_NAME) {

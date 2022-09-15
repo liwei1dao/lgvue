@@ -1,49 +1,59 @@
 <template>
-  <v-container class="d-flex justify-center fill-height"
-               fluid>
-    <v-row>
-      <v-col cols="6">
-      </v-col>
-      <v-col cols="6"
-             align-self="center">
-        <v-card width="350px">
-          <v-toolbar color="primary"
-                     flat>
-            <v-toolbar-title>{{$t('login')}}</v-toolbar-title>
-          </v-toolbar>
-          <v-card-text>
-            <form>
-              <v-text-field v-model="email"
-                            :error-messages="emailErrors"
-                            label="E-mail"
-                            required
-                            @input="$v.email.$touch()"
-                            @blur="$v.email.$touch()"></v-text-field>
-              <v-text-field v-model="password"
-                            :error-messages="passwordErrors"
-                            :counter="10"
-                            label="Password"
-                            required
-                            @input="$v.password.$touch()"
-                            @blur="$v.password.$touch()"></v-text-field>
-              <v-btn class="mr-4"
-                     color="warning"
-                     @click="emaillogin"
-                     block>
-                {{$t('login')}}
-              </v-btn>
-              <v-btn class="mt-4"
-                     color="grey lighten-1"
-                     to="/register"
-                     block>
-                {{$t('register')}}
-              </v-btn>
-            </form>
-          </v-card-text>
+  <v-app>
+    <v-main>
+      <v-container class="d-flex justify-center fill-height"
+                   fluid>
+        <v-card flat
+                width="100%"
+                height="100%"
+                img="bg02.png">
+          <v-row justify="end"
+                 class="fill-height">
+            <v-col cols="6"
+                   align-self="center">
+              <v-card width="350px"
+                      shaped
+                      elevation="20">
+                <v-toolbar color="primary"
+                           flat>
+                  <v-toolbar-title>{{$t('login')}}</v-toolbar-title>
+                </v-toolbar>
+                <v-card-text>
+                  <form>
+                    <v-text-field v-model="email"
+                                  :error-messages="emailErrors"
+                                  label="E-mail"
+                                  required
+                                  @input="$v.email.$touch()"
+                                  @blur="$v.email.$touch()"></v-text-field>
+                    <v-text-field v-model="password"
+                                  :error-messages="passwordErrors"
+                                  :counter="10"
+                                  label="Password"
+                                  required
+                                  @input="$v.password.$touch()"
+                                  @blur="$v.password.$touch()"></v-text-field>
+                    <v-btn class="mr-4"
+                           color="warning"
+                           @click="emaillogin"
+                           block>
+                      {{$t('login')}}
+                    </v-btn>
+                    <v-btn class="mt-4"
+                           color="grey lighten-1"
+                           to="/register"
+                           block>
+                      {{$t('register')}}
+                    </v-btn>
+                  </form>
+                </v-card-text>
+              </v-card>
+            </v-col>
+          </v-row>
         </v-card>
-      </v-col>
-    </v-row>
-  </v-container>
+      </v-container>
+    </v-main>
+  </v-app>
 </template>
 
 <script>

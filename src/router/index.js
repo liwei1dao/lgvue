@@ -22,20 +22,23 @@ const staticRoutes = [
         meta: { title: '首页', icon: 'mdi-home' },
         component: () => import('@/views/index.vue'),
       },
-      {
-        path: 'login',
-        name: 'login',
-        meta: { title: '登录', icon: 'mdi-home' },
-        component: () => import('@/views/login.vue'),
-      },
-      {
-        path: 'register',
-        name: 'register',
-        meta: { title: '注册', icon: 'mdi-home' },
-        component: () => import('@/views/register.vue'),
-      }
-    ]
+
+
+    ],
+  },
+  {
+    path: '/login',
+    name: 'login',
+    meta: { title: '登录', icon: 'mdi-home' },
+    component: () => import('@/views/login.vue'),
+  },
+  {
+    path: '/register',
+    name: 'register',
+    meta: { title: '注册', icon: 'mdi-home' },
+    component: () => import('@/views/register.vue'),
   }
+
 ]
 /*动态路由*/
 const Dynamicroutes = [

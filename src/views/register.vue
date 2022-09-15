@@ -1,75 +1,85 @@
 <template>
-  <v-container class="d-flex justify-center fill-height"
-               fluid>
-    <v-row>
-      <v-col cols="6">
-      </v-col>
-      <v-col cols="6"
-             align-self="center">
-        <v-card width="350px">
-          <v-toolbar color="primary"
-                     flat>
-            <v-toolbar-title>{{$t('register')}}</v-toolbar-title>
-          </v-toolbar>
-          <v-card-text>
-            <v-form>
-              <v-text-field v-model="email"
-                            :error-messages="emailErrors"
-                            label="email"
-                            required
-                            @input="$v.email.$touch()"
-                            @blur="$v.email.$touch()"></v-text-field>
-              <v-text-field v-model="password"
-                            :error-messages="passwordErrors"
-                            :counter="10"
-                            label="Password"
-                            :append-icon="passwordeye ? 'mdi-eye' : 'mdi-eye-off'"
-                            :type="passwordeye ? 'text' : 'password'"
-                            required
-                            @click:append="passwordeye = !passwordeye"
-                            @input="$v.password.$touch()"
-                            @blur="$v.password.$touch()"></v-text-field>
-              <v-text-field v-model="confirmpassword"
-                            :error-messages="confirmpasswordErrors"
-                            :counter="10"
-                            label="ConfirmPassword"
-                            :append-icon="passwordeye ? 'mdi-eye' : 'mdi-eye-off'"
-                            :type="passwordeye ? 'text' : 'password'"
-                            required
-                            @click:append="passwordeye = !passwordeye"
-                            @input="$v.confirmpassword.$touch()"
-                            @blur="$v.confirmpassword.$touch()"></v-text-field>
-              <v-text-field v-model="captcha"
-                            :error-messages="captchaErrors"
-                            :counter="4"
-                            :label="$t('captcha')"
-                            required
-                            @input="$v.captcha.$touch()"
-                            @blur="$v.captcha.$touch()">
-                <template v-slot:append>
-                  <v-btn color="primary"
-                         @click="getcaptcha"
-                         dark>{{$t('captcha')}}</v-btn>
-                </template>
-              </v-text-field>
-              <v-btn class="mr-4"
-                     color="warning"
-                     @click="register"
-                     block>
-                {{$t('register')}}
-              </v-btn>
-              <v-btn class="mt-4"
-                     color="grey lighten-1"
-                     to="/login"
-                     block>
-                {{$t('login')}}
-              </v-btn>
-            </v-form>
-          </v-card-text>
+  <v-app>
+    <v-main>
+
+      <v-container class="d-flex justify-center fill-height"
+                   fluid>
+        <v-card flat
+                width="100%"
+                height="100%"
+                img="bg03.png">
+          <v-row>
+            <v-col cols="6">
+            </v-col>
+            <v-col cols="6"
+                   align-self="center">
+              <v-card width="350px">
+                <v-toolbar color="primary"
+                           flat>
+                  <v-toolbar-title>{{$t('register')}}</v-toolbar-title>
+                </v-toolbar>
+                <v-card-text>
+                  <v-form>
+                    <v-text-field v-model="email"
+                                  :error-messages="emailErrors"
+                                  label="email"
+                                  required
+                                  @input="$v.email.$touch()"
+                                  @blur="$v.email.$touch()"></v-text-field>
+                    <v-text-field v-model="password"
+                                  :error-messages="passwordErrors"
+                                  :counter="10"
+                                  label="Password"
+                                  :append-icon="passwordeye ? 'mdi-eye' : 'mdi-eye-off'"
+                                  :type="passwordeye ? 'text' : 'password'"
+                                  required
+                                  @click:append="passwordeye = !passwordeye"
+                                  @input="$v.password.$touch()"
+                                  @blur="$v.password.$touch()"></v-text-field>
+                    <v-text-field v-model="confirmpassword"
+                                  :error-messages="confirmpasswordErrors"
+                                  :counter="10"
+                                  label="ConfirmPassword"
+                                  :append-icon="passwordeye ? 'mdi-eye' : 'mdi-eye-off'"
+                                  :type="passwordeye ? 'text' : 'password'"
+                                  required
+                                  @click:append="passwordeye = !passwordeye"
+                                  @input="$v.confirmpassword.$touch()"
+                                  @blur="$v.confirmpassword.$touch()"></v-text-field>
+                    <v-text-field v-model="captcha"
+                                  :error-messages="captchaErrors"
+                                  :counter="4"
+                                  :label="$t('captcha')"
+                                  required
+                                  @input="$v.captcha.$touch()"
+                                  @blur="$v.captcha.$touch()">
+                      <template v-slot:append>
+                        <v-btn color="primary"
+                               @click="getcaptcha"
+                               dark>{{$t('captcha')}}</v-btn>
+                      </template>
+                    </v-text-field>
+                    <v-btn class="mr-4"
+                           color="warning"
+                           @click="register"
+                           block>
+                      {{$t('register')}}
+                    </v-btn>
+                    <v-btn class="mt-4"
+                           color="grey lighten-1"
+                           to="/login"
+                           block>
+                      {{$t('login')}}
+                    </v-btn>
+                  </v-form>
+                </v-card-text>
+              </v-card>
+            </v-col>
+          </v-row>
         </v-card>
-      </v-col>
-    </v-row>
-  </v-container>
+      </v-container>
+    </v-main>
+  </v-app>
 </template>
 
 <script>
